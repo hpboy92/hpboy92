@@ -8,29 +8,46 @@
   </head>
   <body>
     <script>
-      let chuoiSo = "1 222222333333333 1";
-      console.log(parseInt(chuoiSo));
+      let chuoiSo =
+        "1 1 1 1 435 234 543 532 43 54 31 5 45 13 2 5 123 5 132 56 231 50421 654 235 5321 65132 45621 56 2 13294 2 5642 564 21 65 21 21654 2 5 5 1 53 8 13 532 654 1 365 132 6854 1356 1 6851 36 55 3 45 30 6 56 405 456 56456 8 8546";
+
       function mangDep(s) {
-        if (s.length < 3) {
-          return false;
-        } else {
+        let mangSo = s.split(" ");
+        console.log(mangSo);
+        if (mangSo.length > 2) {
+          let tongMangSo = 0;
           let tongDau = 0;
           let tongCuoi = 0;
-          for (let i = 0; i < s.length / 2 - 1; i++) {
-            tongDau += Number(s[i]);
-            tongCuoi += Number(s[s.length - 1 - i]);
+          for (let i = 0; i < mangSo.length; i++) {
+            tongMangSo += parseInt(mangSo[i]);
           }
-          console.log(tongDau, tongCuoi);
-          if (tongDau == tongCuoi) {
-            return true;
-          } else {
+          console.log(tongMangSo);
+
+          if (isNaN(tongMangSo)) {
             return false;
           }
+
+          for (let i = 1; i < mangSo.length - 1; i++) {
+            tongDau += parseInt(mangSo[i - 1]);
+            tongCuoi = tongMangSo - tongDau - parseInt(mangSo[i]);
+            console.log(
+              "i =",
+              i,
+              mangSo[i],
+              `tongDau = ${tongDau}`,
+              `tongCuoi = ${tongCuoi}`
+            );
+            if (tongDau == tongCuoi) {
+              return true;
+            }
+          }
+          return false;
+        } else {
+          return false;
         }
       }
 
-      let ketQua = mangDep(chuoiSo);
-      console.log(ketQua);
+      console.log(mangDep(chuoiSo));
     </script>
   </body>
 </html>
