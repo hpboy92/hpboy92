@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let chuoiSo = "1 222222333333333 1";
+      console.log(parseInt(chuoiSo));
+      function mangDep(s) {
+        if (s.length < 3) {
+          return false;
+        } else {
+          let tongDau = 0;
+          let tongCuoi = 0;
+          for (let i = 0; i < s.length / 2 - 1; i++) {
+            tongDau += Number(s[i]);
+            tongCuoi += Number(s[s.length - 1 - i]);
+          }
+          console.log(tongDau, tongCuoi);
+          if (tongDau == tongCuoi) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+      }
+
+      let ketQua = mangDep(chuoiSo);
+      console.log(ketQua);
+    </script>
+  </body>
+</html>
