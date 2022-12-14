@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let mang = [
+        [1, 2, 3, 4],
+        [5, 6, 7, 8],
+        [9, 10, 11, 12],
+        [13, 14, 15, 16],
+      ];
+
+      function solve(arr) {
+        let ketQua = [];
+        for (let i = 0; i < arr.length; i++) {
+          for (let j = 0; j < arr[i].length; j++) {
+            console.log(i, j, arr[i][j]);
+            if (arr[i][j] == 2) {
+              ketQua.push(arr[i][j]);
+            } else if (arr[i][j] > 2) {
+              let dem = 0;
+              for (let idx = 2; idx < arr[i][j]; idx++) {
+                console.log(arr[i][j]);
+                if (arr[i][j] % idx == 0) {
+                  dem++;
+                }
+              }
+              if (dem == 0) {
+                ketQua.push(arr[i][j]);
+              }
+            }
+          }
+        }
+        console.log(ketQua);
+        let result = [];
+
+        for (let i = 1; i < ketQua.length; i++) {
+          let min = ketQua[0];
+          if (ketQua[i] < Min) {
+            Min = ketQua[i];
+          }
+        }
+      }
+
+      solve(mang);
+
+      //   let so = 11;
+      //   function kiemTraSoNguyenTo(x) {
+      //     if (x < 2) {
+      //       return false;
+      //     } else if (x == 2) {
+      //       return true;
+      //     } else {
+      //       for (let i = 2; i < x; i++) {
+      //         if (x % i == 0) {
+      //           return false;
+      //         }
+      //       }
+      //       return true;
+      //     }
+      //   }
+
+      //   console.log(kiemTraSoNguyenTo(so));
+    </script>
+  </body>
+</html>
